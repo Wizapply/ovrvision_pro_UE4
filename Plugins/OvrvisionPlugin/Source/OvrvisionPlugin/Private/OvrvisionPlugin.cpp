@@ -1,6 +1,7 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 
 #include "OvrvisionPluginPrivatePCH.h"
+#include <Windows.h>
 
 //LoadLibrary
 extern "C" {
@@ -357,6 +358,8 @@ void FOvrvisionPlugin::Open(int opentype, float ar_msize)
 	TextureWidth = ovGetImageWidth();
 	TextureHeight = ovGetImageHeight();
 
+#undef UpdateResource
+
 	TextureLeft = UTexture2D::CreateTransient(TextureWidth, TextureHeight);
 	TextureLeft->CompressionSettings = TextureCompressionSettings::TC_VectorDisplacementmap;
 	TextureLeft->SRGB = 0;
@@ -366,6 +369,12 @@ void FOvrvisionPlugin::Open(int opentype, float ar_msize)
 	TextureRight->CompressionSettings = TextureCompressionSettings::TC_VectorDisplacementmap;
 	TextureRight->SRGB = 0;
 	TextureRight->UpdateResource();
+
+#ifdef UNICODE
+#define UpdateResource  UpdateResourceW
+#else
+#define UpdateResource  UpdateResourceA
+#endif // !UNICODE
 
 	isOpen = true;
 }

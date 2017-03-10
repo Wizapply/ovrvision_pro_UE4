@@ -49,6 +49,7 @@ void AOvrvisionPluginCharacter::OpenOvrvision(int32 openType, float ar_size)
 	OvrvisionLeftTexture = IOvrvisionPlugin::Get().GetTextureLeft();
 	OvrvisionRightTexture = IOvrvisionPlugin::Get().GetTextureRight();
 
+	/*
 	GetImageWidth = IOvrvisionPlugin::Get().GetImageWidth();
 	GetImageHeight = IOvrvisionPlugin::Get().GetImageHeight();
 	GetImageAspectH = (float)GetImageHeight / (float)GetImageWidth;
@@ -57,6 +58,7 @@ void AOvrvisionPluginCharacter::OpenOvrvision(int32 openType, float ar_size)
 	GetHMDRightGap.X = IOvrvisionPlugin::Get().GetHMDRightGap(0);
 	GetHMDRightGap.Y = IOvrvisionPlugin::Get().GetHMDRightGap(1);
 	GetHMDRightGap.Z = IOvrvisionPlugin::Get().GetHMDRightGap(2);
+	*/
 }
 
 void AOvrvisionPluginCharacter::CloseOvrvision()
